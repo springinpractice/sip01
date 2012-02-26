@@ -1,9 +1,12 @@
-// Source project: sip01, branch: 02 (Maven Project)
+// Source project: sip01, branch: 04 (Maven Project)
 package com.springinpractice.ch01.dao.jdbc;
+
+import java.util.List;
 
 import javax.sql.DataSource;
 
 import com.springinpractice.ch01.dao.AccountDao;
+import com.springinpractice.ch01.model.Account;
 
 public class JdbcAccountDao implements AccountDao {
 	
@@ -13,6 +16,10 @@ public class JdbcAccountDao implements AccountDao {
 
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
+	}
+
+	public List<Account> findAll() throws Exception {
+		throw new UnsupportedOperationException("This method has not been implemented");
 	}	
 	
 }
