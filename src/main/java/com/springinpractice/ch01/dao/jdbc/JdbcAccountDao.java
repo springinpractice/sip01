@@ -1,15 +1,18 @@
-// Source project: sip01, branch: 04 (Maven Project)
+// Source project: sip01, branch: 07 (Maven Project)
 package com.springinpractice.ch01.dao.jdbc;
 
 import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.springinpractice.ch01.dao.AccountDao;
 import com.springinpractice.ch01.model.Account;
 
 public class JdbcAccountDao implements AccountDao {
 	
+	@Autowired
 	private DataSource dataSource;
 	
 	public JdbcAccountDao() {}
