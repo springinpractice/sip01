@@ -1,4 +1,4 @@
-//Source project: sip01, branch: 07 (Maven Project)
+//Source project: sip01, branch: 08 (Maven Project)
 package com.springinpractice.ch01.service;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -6,12 +6,13 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.springinpractice.ch01.dao.AccountDao;       
 import com.springinpractice.ch01.model.Account;
 
+@Component
 public class AccountService {
 	
 	@Autowired
