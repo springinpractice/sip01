@@ -1,16 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Source project: sip01, branch: 04 (Maven Project) -->
+<!-- Source project: sip01, branch: 05 (Maven Project) -->
 
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 		http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		
-	<bean id="accountDao" class="com.springinpractice.ch01.dao.csv.CsvAccountDao">
-		<property name="csvResource" value="accounts.csv"/>	
-	</bean>
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	    <property name="location" value="springbook.properties"/>
+	</bean>		
+		
 	
 	<bean id="accountService" class="com.springinpractice.ch01.service.AccountService">
 		<property name="accountDao" ref="accountDao"/>
 	</bean>
+	
+	<bean id="accountDao" class="com.springinpractice.ch01.dao.jdbc.JdbcAccountDao">
+		<property name="dataSource" ref="dataSource"/>	
+	</bean>
+	
+	<bean id="dataSource"
+	  class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${dataSource.driverClassName}"/>
+	    <property name="url" value="${dataSource.url}"/>
+	    <property name="username" value="${dataSource.username}"/>
+	    <property name="password" value="${dataSource.password}"/>
+	</bean>
+			
 </beans>
