@@ -25,7 +25,8 @@ public class CsvAccountDao implements AccountDao {
 		List<Account> results = new ArrayList<Account>();
 		
 		DateFormat fmt = new SimpleDateFormat("MMddyyyy");		
-		BufferedReader br = new BufferedReader(new FileReader(csvResource.getFile()));
+		BufferedReader br = new BufferedReader(
+				new FileReader(csvResource.getFile()));
 		String line;
 		while ((line = br.readLine()) != null) {
 			String[] fields = line.split(",");
@@ -33,7 +34,8 @@ public class CsvAccountDao implements AccountDao {
 			String accountNo = fields[0];
 			BigDecimal balance = new BigDecimal(fields[1]);
 			Date lastPaidOn = fmt.parse(fields[2]);
-			Account account = new Account(accountNo, balance, lastPaidOn);			
+			Account account = 
+				new Account(accountNo, balance, lastPaidOn);			
 			results.add(account);
 		}
 		br.close();
