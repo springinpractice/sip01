@@ -25,8 +25,10 @@ public class AccountService {
 		
 		Date thirtyDaysAgo = daysAgo(30);
 		for (Account account : accounts) {
-			boolean owesMoney = account.getBalance().compareTo(BigDecimal.ZERO) > 0; 
-			boolean thirtyDaysLate = account.getLastPaidOn().compareTo(thirtyDaysAgo) <= 0;
+			boolean owesMoney = account.getBalance()
+				.compareTo(BigDecimal.ZERO) > 0; 
+			boolean thirtyDaysLate = account.getLastPaidOn()
+				.compareTo(thirtyDaysAgo) <= 0;
 			 
 			if (owesMoney && thirtyDaysLate) {
 				delinquentAccounts.add(account);
