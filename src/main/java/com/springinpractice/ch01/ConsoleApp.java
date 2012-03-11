@@ -11,9 +11,12 @@ import com.springinpractice.ch01.service.AccountService;
 
 public class ConsoleApp {
     public static void main(String[] args) throws Exception {
-        ApplicationContext appCtx = new ClassPathXmlApplicationContext("applicationContext.xml");
-        AccountService accountService = (AccountService) appCtx.getBean("accountService");
-        List<Account> delinquentAccounts = accountService.findDeliquentAccounts();
+        ApplicationContext appCtx = 
+        	new ClassPathXmlApplicationContext("applicationContext.xml");
+        AccountService accountService = 
+        	(AccountService)appCtx.getBean("accountService");
+        List<Account> delinquentAccounts = accountService
+        	.findDeliquentAccounts();
 
         for (Account a : delinquentAccounts) {
             System.out.println(a.getAccountNo());
