@@ -11,7 +11,8 @@ public class JdbcAccountDao implements AccountDao {
 	public JdbcAccountDao() {
 		dataSource = new BasicDataSource();
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");		
-		dataSource.setUrl("jdbc:mysql://localhost:3306/springbook?autoReconnect=true");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/springbook" + 
+				"?autoReconnect=true");
 		dataSource.setUsername("root");
 		dataSource.setPassword("");
 	}	
