@@ -10,7 +10,6 @@
 	    <property name="location" value="springbook.properties"/>
 	</bean>		
 		
-	
 	<bean id="accountService" 
 	   class="com.springinpractice.ch01.service.AccountService">
 		<property name="accountDao" ref="accountDao"/>
