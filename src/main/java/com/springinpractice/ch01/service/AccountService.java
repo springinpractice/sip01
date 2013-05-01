@@ -1,5 +1,6 @@
 //Source project: sip01, branch: 07 (Maven Project)
 package com.springinpractice.ch01.service;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -9,7 +10,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.springinpractice.ch01.dao.AccountDao;       
+import com.springinpractice.ch01.dao.AccountDao;
 import com.springinpractice.ch01.model.Account;
 
 public class AccountService {
@@ -29,8 +30,10 @@ public class AccountService {
 		
 		Date thirtyDaysAgo = daysAgo(30);
 		for (Account account : accounts) {
-			boolean owesMoney = account.getBalance().compareTo(BigDecimal.ZERO) > 0; 
-			boolean thirtyDaysLate = account.getLastPaidOn().compareTo(thirtyDaysAgo) <= 0;
+			boolean owesMoney = account.getBalance()
+				.compareTo(BigDecimal.ZERO) > 0; 
+			boolean thirtyDaysLate = account.getLastPaidOn()
+				.compareTo(thirtyDaysAgo) <= 0;
 			 
 			if (owesMoney && thirtyDaysLate) {
 				delinquentAccounts.add(account);
