@@ -1,9 +1,18 @@
-//Source project: sip01, branch: 02 (Maven Project)
+/* 
+ * Copyright (c) 2013 Manning Publications Co.
+ * 
+ * Book: http://manning.com/wheeler/
+ * Blog: http://springinpractice.com/
+ * Code: https://github.com/springinpractice
+ */
 package com.springinpractice.ch01.service;
-import java.util.Properties;
+
 import java.io.InputStream;
+import java.util.Properties;
+
 import org.apache.commons.dbcp.BasicDataSource;
-import com.springinpractice.ch01.dao.jdbc.JdbcAccountDao;       
+
+import com.springinpractice.ch01.dao.jdbc.JdbcAccountDao;
 
 public class AccountService {
     private JdbcAccountDao accountDao;
