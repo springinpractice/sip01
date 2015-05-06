@@ -7,20 +7,30 @@
  */
 package com.springinpractice.ch01.dao.jdbc;
 
-import org.apache.commons.dbcp.BasicDataSource;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.springinpractice.ch01.dao.AccountDao;
+import com.springinpractice.ch01.model.Account;
 
+@Component
 public class JdbcAccountDao implements AccountDao {
-	private BasicDataSource dataSource;
 	
-	public JdbcAccountDao() {
-		dataSource = new BasicDataSource();
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver");		
-		dataSource.setUrl("jdbc:mysql://localhost:3306/springbook" + 
-				"?autoReconnect=true");
-		dataSource.setUsername("root");
-		dataSource.setPassword("");
+	@Autowired
+	private DataSource dataSource;
+	
+	public JdbcAccountDao() {}
+
+	public void setDataSource(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
+
+	public List<Account> findAll() throws Exception {
+		throw new UnsupportedOperationException("This method has not been implemented");
 	}	
 	
 }
